@@ -1,0 +1,29 @@
+python run_reconstruction.py -c pretrained/E2VID_lightweight.pth.tar -i data/ball.zip --auto_hdr --display --show_events
+
+python .\scripts\resample_reconstructions.py -i .\reconstruction\reconstruction\ -o .\reconstruction\ -r 30
+
+import h5py
+import pandas as pd
+f = h5py.File("lab.hdf5", "r")
+events = pd.DataFrame(f["CD"]["events"][:])
+events['t'] = events['t']/1000000
+events = events[['t','x','y','p']]
+events.to_csv("lab.txt", sep=" ", index=False)
+
+resolution 1280 720
+
+
+hand-over-cup
+cup-then-hand
+
+light-over-text
+text-then-light
+solid-over-text
+
+.\reconstruct_video.ps1 light-over-text
+.\reconstruct_video.ps1 text-then-light
+.\reconstruct_video.ps1 solid-over-text
+
+
+import matplotlib.pyplot as plt
+plt.imshow(np.concatenate(predictions_ood)[0,0,:,:], cmap="gray"); plt.show()
