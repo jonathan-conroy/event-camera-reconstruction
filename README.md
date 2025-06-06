@@ -11,6 +11,8 @@ The script `handcraft_events.py` could be used to inject events to the event str
 
 Run `python merge.py` after running E2VID, to estimate the static background and merge it with the E2VID reconstruction.
 
+The dependencies (including those for E2VID and Noise2Image) are listed in `requirements.txt`
+
 **List of scripts:**
 - `convert.py:`
    Converts .hdf5 file provided by Metavision software to either .txt
