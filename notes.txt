@@ -27,3 +27,10 @@ solid-over-text
 
 import matplotlib.pyplot as plt
 plt.imshow(np.concatenate(predictions_ood)[0,0,:,:], cmap="gray"); plt.show()
+
+----
+
+To run noise2image:
+    python convert.py [filename] h5
+    copy the h5 file to noise2image\data\ood...
+    python .\train.py --checkpoint_path .\pretrained\noise2image_exp_all.ckpt --polarity --pixel_bin 10
